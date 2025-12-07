@@ -13,6 +13,8 @@ import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
+import NewReleasesIcon from '@mui/icons-material/NewReleases';
+import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import { PATHS } from '../paths';
 
 const drawerWidth = 240;
@@ -24,6 +26,8 @@ export default function Layout() {
     { text: 'Home', icon: <HomeIcon />, path: PATHS.HOME },
     { text: 'Hooks', icon: <CodeIcon />, path: PATHS.HOOKS },
     { text: 'React Query', icon: <StorageIcon />, path: PATHS.REACT_QUERY },
+    { text: 'React 19 Actions', icon: <NewReleasesIcon />, path: PATHS.REACT_19 },
+    { text: 'React 19 Fetch', icon: <CloudSyncIcon />, path: PATHS.REACT_19_FETCH },
   ];
 
   return (
