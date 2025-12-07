@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import HooksPlayground from './pages/HooksPlayground';
 import ReactQueryPlayground from './pages/ReactQueryPlayground';
+import ReactQuerySuspense from './pages/ReactQuerySuspense';
 import React19Playground from './pages/React19Playground';
 import React19Fetch from './pages/React19Fetch';
 import { PATHS } from './paths';
@@ -23,6 +24,10 @@ const routes: RouteObject[] = [
       {
         path: PATHS.REACT_QUERY,
         element: <ReactQueryPlayground />,
+      },
+      {
+        path: PATHS.REACT_QUERY_SUSPENSE,
+        element: <ReactQuerySuspense />,
       },
       {
         path: PATHS.REACT_19,

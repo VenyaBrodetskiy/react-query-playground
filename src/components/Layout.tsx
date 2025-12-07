@@ -26,6 +26,7 @@ export default function Layout() {
     { text: 'Home', icon: <HomeIcon />, path: PATHS.HOME },
     { text: 'Hooks', icon: <CodeIcon />, path: PATHS.HOOKS },
     { text: 'React Query', icon: <StorageIcon />, path: PATHS.REACT_QUERY },
+    { text: 'RQ Suspense', icon: <StorageIcon />, path: PATHS.REACT_QUERY_SUSPENSE },
     { text: 'React 19 Actions', icon: <NewReleasesIcon />, path: PATHS.REACT_19 },
     { text: 'React 19 Fetch', icon: <CloudSyncIcon />, path: PATHS.REACT_19_FETCH },
   ];
@@ -62,7 +63,7 @@ export default function Layout() {
               <ListItemButton 
                 component={RouterLink} 
                 to={item.path}
-                selected={location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path))}
+                selected={location.pathname === item.path}
               >
                 <ListItemIcon>
                   {item.icon}
