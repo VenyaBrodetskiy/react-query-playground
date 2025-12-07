@@ -1,8 +1,11 @@
 import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,17 +17,27 @@ import { PATHS } from '../paths';
 
 const drawerWidth = 240;
 
-const menuItems = [
-  { text: 'Home', icon: <HomeIcon />, path: PATHS.HOME },
-  { text: 'Hooks Playground', icon: <CodeIcon />, path: PATHS.HOOKS },
-  { text: 'React Query', icon: <StorageIcon />, path: PATHS.REACT_QUERY },
-];
-
-function Layout() {
+export default function Layout() {
   const location = useLocation();
+
+  const menuItems = [
+    { text: 'Home', icon: <HomeIcon />, path: PATHS.HOME },
+    { text: 'Hooks', icon: <CodeIcon />, path: PATHS.HOOKS },
+    { text: 'React Query', icon: <StorageIcon />, path: PATHS.REACT_QUERY },
+  ];
 
   return (
     <Box sx={{ display: 'flex' }}>
+      <AppBar
+        position="fixed"
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      >
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            My App
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -37,38 +50,32 @@ function Layout() {
         variant="permanent"
         anchor="left"
       >
-        <Box sx={{ p: 2 }}>
-            <Typography variant="h6" component="div">
-              My App
-            </Typography>
-        </Box>
-        <Box sx={{ overflow: 'auto' }}>
-          <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton 
-                  component={RouterLink} 
-                  to={item.path}
-                  selected={location.pathname === item.path}
-                >
-                  <ListItemIcon>
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <Toolbar />
+        <Divider />
+        <List>
+          {menuItems.map((item) => (
+            <ListItem key={item.text} disablePadding>
+              <ListItemButton 
+                component={RouterLink} 
+                to={item.path}
+                selected={location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path))}
+              >
+                <ListItemIcon>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, minHeight: '100vh' }}
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
+        <Toolbar />
         <Outlet />
       </Box>
     </Box>
   );
 }
-
-export default Layout;
