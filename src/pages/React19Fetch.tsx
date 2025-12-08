@@ -1,12 +1,14 @@
 import { use, Suspense, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import CircularProgress from "@mui/material/CircularProgress";
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  Paper,
+  Button,
+  CircularProgress,
+} from "@mui/material";
 import { fetchPosts, type Post } from '../api/posts';
 
 function PostsContent({ postsPromise }: { postsPromise: Promise<Post[]> | null }) {

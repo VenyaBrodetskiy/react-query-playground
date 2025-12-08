@@ -1,12 +1,14 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import CircularProgress from '@mui/material/CircularProgress';
-import Alert from '@mui/material/Alert';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  Alert,
+  Paper,
+  Button,
+} from '@mui/material';
 import { usePosts } from '../hooks/usePosts';
 
 export default function ReactQueryPlayground() {

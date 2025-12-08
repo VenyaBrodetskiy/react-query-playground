@@ -1,12 +1,14 @@
 import { useActionState, useOptimistic } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Stack from "@mui/material/Stack";
-import CircularProgress from "@mui/material/CircularProgress";
+import {
+  Box,
+  Typography,
+  Button,
+  TextField,
+  Card,
+  CardContent,
+  Stack,
+  CircularProgress,
+} from "@mui/material";
 
 // Simulation of a server action
 async function updateName(currentState: string, formData: FormData): Promise<string> {

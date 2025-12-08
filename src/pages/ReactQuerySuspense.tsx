@@ -1,12 +1,14 @@
 import { Suspense } from "react";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import CircularProgress from '@mui/material/CircularProgress';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  Paper,
+  Button,
+} from '@mui/material';
 import { useSuspensePosts } from '../hooks/usePosts';
 
 function PostsContent() {
