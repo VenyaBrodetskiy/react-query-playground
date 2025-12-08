@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { useSuspenseQuery } from '@tanstack/react-query';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
@@ -8,27 +7,10 @@ import ListItemText from '@mui/material/ListItemText';
 import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
-
-const fetchPosts = async (): Promise<Post[]> => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
+import { useSuspensePosts } from '../hooks/usePosts';
 
 function PostsContent() {
-  const { data, refetch, isFetching } = useSuspenseQuery({
-    queryKey: ['posts'],
-    queryFn: fetchPosts,
-  });
+  const { data, refetch, isFetching } = useSuspensePosts();
 
   return (
     <>

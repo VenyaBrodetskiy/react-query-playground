@@ -7,21 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
-
-const fetchPosts = async (): Promise<Post[]> => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
+import { fetchPosts, type Post } from '../api/posts';
 
 function PostsContent({ postsPromise }: { postsPromise: Promise<Post[]> | null }) {
   if (!postsPromise) return null;
